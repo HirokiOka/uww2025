@@ -1,0 +1,61 @@
+---
+
+const urlPrefix = "https://tt-lab.jp/uww";
+const previousUwwInfo = Array.from({ length: 2024 - 2007 + 1 }, (_, i) => {
+  const year = 2024 - i;
+  return {
+    title: String(year),
+    link: `${urlPrefix}${year}`,
+  };
+});
+---
+<footer class="bl_footer">
+    <div>過去のUWW</div>
+    <ul class="bl_footer_list">
+        {
+            previousUwwInfo.map(({ title, link }) => <li class="bl_footer_list_item"><a href={link}>{ title }</a></li>)
+        }
+    </ul>
+    <div class="bl_footer_info">
+        <div>E-mail:uww2024org [at] ubi.eedept.kobe-u.ac.jp</div>
+        <div>© Tsukamoto Terada Lab.</div>
+    </div>
+</footer>
+
+<style>
+    .bl_footer {
+        padding: 12px;
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+    }
+
+    .bl_footer_list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+    }
+
+    .bl_footer_list_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > a {
+            font-size: 20px;
+            color: #fff
+        }
+        &:hover {
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+    }
+
+    .bl_footer_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+</style>
