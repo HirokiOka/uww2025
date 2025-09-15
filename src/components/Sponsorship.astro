@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import TsukakenImage from "../../public/tsukaken.png";
+import TeamtsukamotoImage from "../../public/teamtsukamoto.png";
+---
+<div class="bl_sponsorship">
+    <h2 class="bl_sponsorship_title">主催</h2>
+    <div class="bl_sponsorship_content">
+    <div class="bl_sponsorship_contentItem">
+        <h3 class="bl_sponsorship_contentItem_title">神戸大学大学院工学研究科 塚本・寺田研究室</h3>
+        <Image
+                src={TsukakenImage}
+                alt=""
+                width="384"
+                height="64"
+        />
+    </div>
+    <div class="bl_sponsorship_contentItem">
+    <h3 class="bl_sponsorship_contentItem_title">NPO法人ウェアラブルコンピュータ研究開発機構（チームつかもと）</h3>
+        <Image
+                src={TeamtsukamotoImage}
+                alt=""
+                width="384"
+                height="64"
+        />
+    </div>
+    </div>
+</div>
+
+<style>
+    .bl_sponsorship_title {
+        font-size: 38px;
+    }
+
+    .bl_sponsorship_content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bl_sponsorship_contentItem {
+        display: grid;
+        place-items: center;
+    }
+
+    .bl_sponsorship_contentItem_title {
+        font-size: 28px;
+    }
+</style>

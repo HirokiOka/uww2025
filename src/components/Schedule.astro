@@ -1,23 +1,23 @@
 ---
 
 const scheduleInfo = [
-    {
-        date: "12/19 (金)",
-        timeTable: [
-            { time: "9:30-", event: "受付" },
-            { time: "9:30--9:40", event: "オープニング" },
-            { time: "9:40--18:30", event: "口頭発表セッション (途中休憩あり)" },
-            { time: "18:50-20:50", event: "ナイトセッション" },
-        ]
-    },
-    {
-        date: "12/20 (土)",
-        timeTable: [
-            { time: "9:30-18:00", event: "口頭発表セッション（途中休憩あり）" },
-            { time: "18:00-18:20", event: "表彰・クロージング" },
-        ]
-    }
-]
+  {
+    date: "12/19 (金)",
+    timeTable: [
+      { time: "9:30-", event: "受付" },
+      { time: "9:30--9:40", event: "オープニング" },
+      { time: "9:40--18:30", event: "口頭発表セッション (途中休憩あり)" },
+      { time: "18:50-20:50", event: "ナイトセッション" },
+    ],
+  },
+  {
+    date: "12/20 (土)",
+    timeTable: [
+      { time: "9:30-18:00", event: "口頭発表セッション（途中休憩あり）" },
+      { time: "18:00-18:20", event: "表彰・クロージング" },
+    ],
+  },
+];
 ---
 <div class="bl_schedule">
     <h2 class="bl_schedule_title">スケジュール</h2>
@@ -51,23 +51,25 @@ const scheduleInfo = [
 
 <style>
     .bl_schedule_title {
-        font-size: 32px;
+        font-size: 38px;
     }
 
     .bl_schedule_tableContent {
         display: grid;
+        place-items: center;
         grid-template-columns: repeat(2, 1fr) ;
     }
 
     .bl_schedule_tableTitle {
         font-size: 28px;
+
     }
 
     .bl_schedule_table {
         border-collapse: collapse;
 
         thead > tr {
-            font-size: 24px;
+            font-size: 28px;
             border-bottom: 2px solid #000;
             background: #f0f0f0;
             & > th {
@@ -79,7 +81,7 @@ const scheduleInfo = [
         }
 
         tbody > tr {
-            font-size: 24px;
+            font-size: 28px;
             text-align: center;
             & > td {
                 padding: 4px 24px;

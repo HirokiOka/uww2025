@@ -2,7 +2,11 @@
 
 ---
 <div class="bl_title">
-    <div class="bl_title_text">UBIQUITOUS<br /> WEARABLE<br /> WORKSHOP 2025</div>
+    <div class="bl_title_text">
+        <span><span class="bl_title_text_invert">UBI</span>QUITOUS</span>
+        <span><span class="bl_title_text_invert">WEAR</span>ABLE</span>
+        <span>WORKSHOP <span class="bl_title_text_invert">2025</span></span>
+    </div>
 </div>
 
 <style>
@@ -14,6 +18,24 @@
 
     .bl_title_text {
         font-weight: bold;
-        font-size: 124px;
+        font-size: 180px;
+        display: flex;
+        flex-direction: column;
+        > span {
+            &:nth-child(1) {
+                align-self: center;
+            }
+            &:nth-child(2) {
+                align-self: center;
+            }
+            &:nth-child(3) {
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .bl_title_text_invert {
+        color: #fff;
+        background: #000;
     }
 </style>

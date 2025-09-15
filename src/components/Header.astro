@@ -5,7 +5,12 @@
     <h1 class="bl_header_logo">UWW2025</h1>
     <nav>
         <ul class="bl_header_list">
-            <li class="bl_header_listItem">Access</li>
+            <li class="bl_header_listItem">
+                <a href="/#top">TOP</a>
+            </li>
+            <li class="bl_header_listItem">
+                Access
+            </li>
         </ul>
     </nav>
 </header>
@@ -23,16 +28,25 @@
     }
 
     .bl_header_logo {
-        padding: 2px 12px;
-        font-size: 20px;
+        padding: 12px 32px;
+        font-size: 28px;
     }
 
     .bl_header_list {
-        padding: 0 16px;
+        padding: 12px 32px;
+        display: flex;
+        gap: 18px;
     }
 
     .bl_header_listItem {
-        font-size: 24px;
+        font-size: 28px;
+        font-weight: bold;
         list-style: none;
+        > a {
+            color: #fff;
+            &:hover {
+                opacity: 0.6;
+            }
+        }
     }
 </style>

@@ -4,39 +4,65 @@
 
 <section class="bl_registration">
     <h2 class="bl_registration_title">参加登録</h2>
-    <div>
-        <h3 class="bl_registration_subTitle">参加費</h3>
-        <ul class="bl_registration_list">
-            <li>一般</li>
-            <li>学生</li>
-        </ul>
-    </div>
-    <div>
-        <h3 class="bl_registration_subTitle">注意事項</h3>
-        <ul class="bl_registration_list">
-            <li>当日現地での参加登録は受け付けません。</li>
-            <li>社会人学生の方は一般と同じ参加費です。</li>
-            <li>ワークショップのみの参加の場合は、参加費は必要ありません。</li>
-            <li>お支払は口座にお振込みをお願いします。</li>
-            <li>支払口座は別途メールにて連絡いたします。</li>
-        </ul>
-    </div>
-    <div>
-        <h3 class="bl_registration_subTitle">懇親会キャンセル料について</h3>
-        <ul class="bl_registration_list">
-            <li>4日前までのキャンセル: 料金はかかりません。</li>
-            <li>3日前～当日のキャンセル: 料金の100%をいただきます。</li>
-        </ul>
+
+    <div class="bl_registration_content">
+        <div class="bl_registration_contentItem">
+            <h3 class="bl_registration_subTitle">参加費</h3>
+            <ul class="bl_registration_list">
+                <li>会議参加費：無料</li>
+                <li>懇親会費：4,000円</li>
+            </ul>
+        </div>
+        <div class="bl_registration_contentItem">
+            <h3 class="bl_registration_subTitle">各種締切</h3>
+            <ul class="bl_registration_list">
+                <li>参加申込締切：2025年11月7日（金） 23:59（JST）</li>
+                <li>原稿提出締切：2025年12月5日（金） 23:59（JST）＊厳守．原稿締切を過ぎると自動的に発表取り下げとなります．</li>
+            </ul>
+        </div>
+
+        <div class="bl_registration_contentItem">
+            <h3 class="bl_registration_subTitle">懇親会キャンセル料について</h3>
+            <ul class="bl_registration_list">
+                <li>4日前までのキャンセル: 料金はかかりません。</li>
+                <li>3日前～当日のキャンセル: 料金の100%をいただきます。</li>
+            </ul>
+        </div>
+
+        <div class="bl_registration_contentItem">
+            <h3 class="bl_registration_subTitle">注意事項</h3>
+            <ul class="bl_registration_list">
+                <li>当日現地での参加登録は受け付けません。</li>
+                <li>社会人学生の方は一般と同じ参加費です。</li>
+                <li>ワークショップのみの参加の場合は、参加費は必要ありません。</li>
+                <li>お支払は口座にお振込みをお願いします。</li>
+                <li>支払口座は別途メールにて連絡いたします。</li>
+            </ul>
+        </div>
+
     </div>
 </section>
 
 <style>
     .bl_registration {
-        //padding: 0 120px;
+
+    }
+
+    .bl_registration_content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bl_registration_contentItem {
+        border-bottom: 1px solid #000;
+        padding: 24px;
+        &:nth-child(odd) {
+            border-right: 1px solid #000;
+        }
     }
 
     .bl_registration_title {
-        font-size: 32px;
+        font-size: 38px;
     }
 
     .bl_registration_subTitle {
