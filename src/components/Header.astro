@@ -6,10 +6,38 @@
     <nav>
         <ul class="bl_header_list">
             <li class="bl_header_listItem">
-                <a href="/#top">TOP</a>
+                <a href="/#top">
+                    <span aria-hidden="true" translate="no" class="bl_header_linkWrap">
+                        <span class="letter" style="--index: 0">T</span>
+                        <span class="letter" style="--index: 1">O</span>
+                        <span class="letter" style="--index: 2">P</span>
+                    </span>
+                    <span class="sr-only">TOP</span>
+                </a>
             </li>
             <li class="bl_header_listItem">
-                Access
+                <a href="/#access">
+                    <span aria-hidden="true" translate="no" class="bl_header_linkWrap">
+                        {["A", "C", "C", "E", "S", "S"].map((char, i) => (
+                            <span class="letter" style={{ "--index": i } as any}>
+                                { char }
+                            </span>
+                        ))}
+                    </span>
+                    <span class="sr-only">ACCESS</span>
+                </a>
+            </li>
+            <li class="bl_header_listItem">
+                <a href="/#schedule">
+                    <span aria-hidden="true" translate="no" class="bl_header_linkWrap">
+                        {["S", "C", "H", "E", "D", "U", "L", "E"].map((char, i) => (
+                                <span class="letter" style={{ "--index": i } as any}>
+                                { char }
+                            </span>
+                        ))}
+                    </span>
+                    <span class="sr-only">SCHEDULE</span>
+                </a>
             </li>
         </ul>
     </nav>
@@ -45,11 +73,33 @@
         font-size: 28px;
         font-weight: bold;
         list-style: none;
-        > a {
-            color: #000;
-            &:hover {
-                opacity: 0.6;
-            }
+    }
+
+    .bl_header_linkWrap {
+        display: flex;
+        &:hover .letter {
+            text-shadow: 0 0 0 #000, 0 1.5em 0 #000;
         }
     }
+
+    .letter {
+        overflow: hidden;
+        color: transparent;
+        text-shadow: 0 -1.5em 0 #000, 0 0 0 #000;
+        transition: text-shadow 0.2s;
+        transition-delay: calc(var(--index) * 0.05s);
+    }
+
+    .sr-only {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border-width: 0;
+        white-space: nowrap;
+    }
+
 </style>
