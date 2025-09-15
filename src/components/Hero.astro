@@ -3,9 +3,9 @@
 ---
 <div class="bl_title">
     <div class="bl_title_text">
-        <span><span class="bl_title_text_invert">UBI</span>QUITOUS</span>
-        <span><span class="bl_title_text_invert">WEAR</span>ABLE</span>
-        <span>WORKSHOP <span class="bl_title_text_invert">2025</span></span>
+        <span class="bl_title_text_lineOne"><span class="bl_title_text_invert">UBI</span>QUITOUS</span>
+        <span class="bl_title_text_lineTwo"><span class="bl_title_text_invert">WEAR</span>ABLE</span>
+        <span class="bl_title_text_lineThree">WORKSHOP <span class="bl_title_text_invert">2025</span></span>
     </div>
 </div>
 
@@ -18,7 +18,7 @@
 
     .bl_title_text {
         font-weight: bold;
-        font-size: 180px;
+        font-size: 190px;
         display: flex;
         flex-direction: column;
         > span {
@@ -33,9 +33,43 @@
             }
         }
     }
+    .bl_title_text_lineOne, .bl_title_text_lineTwo, .bl_title_text_lineThree {
+        opacity: 0;
+    }
 
     .bl_title_text_invert {
         color: #fff;
         background: #000;
     }
 </style>
+
+<script>
+    import gsap from "gsap"
+    const lineOne = document.querySelectorAll('.bl_title_text_lineOne');
+    const lineTwo = document.querySelectorAll('.bl_title_text_lineTwo');
+    const lineThree = document.querySelectorAll('.bl_title_text_lineThree');
+    const tl = gsap.timeline();
+    tl.to(lineOne, {
+        opacity: 1,
+        x: 40,
+        duration: 0.6,
+        ease: "power4.out"
+        },
+    );
+
+    tl.to(lineTwo, {
+            opacity: 1,
+        y: 40,
+            duration: 0.6,
+            ease: "power4.out"
+        },
+    );
+
+    tl.to(lineThree, {
+            opacity: 1,
+        x: -40,
+            duration: 0.6,
+            ease: "power4.out"
+        },
+    );
+</script>

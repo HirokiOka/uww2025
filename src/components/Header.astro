@@ -18,13 +18,16 @@
 <style>
     .bl_header {
         width: 100%;
-        background-color: #000;
-        color: #fff;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        color: #000;
         display: flex;
         justify-content: space-between;
         position: fixed;
         top: 0;
         left: 0;
+        z-index: 999;
+        border-bottom: 1px solid #000;
     }
 
     .bl_header_logo {
@@ -43,7 +46,7 @@
         font-weight: bold;
         list-style: none;
         > a {
-            color: #fff;
+            color: #000;
             &:hover {
                 opacity: 0.6;
             }
