@@ -10,7 +10,7 @@ const previousUwwInfo = Array.from({ length: 2024 - 2007 + 1 }, (_, i) => {
 });
 ---
 <footer class="bl_footer">
-    <div>過去のUWW</div>
+    <h3 class="bl_footer_title">過去のUWW</h3>
     <ul class="bl_footer_list">
         {
             previousUwwInfo.map(({ title, link }) => <li class="bl_footer_list_item"><a href={link}>{ title }</a></li>)
@@ -28,6 +28,12 @@ const previousUwwInfo = Array.from({ length: 2024 - 2007 + 1 }, (_, i) => {
         width: 100%;
         background-color: #000;
         color: #fff;
+    }
+
+    .bl_footer_title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .bl_footer_list {

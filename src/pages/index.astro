@@ -3,7 +3,9 @@ import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import News from "../components/News.astro"
 import Registration from "../components/Registration.astro";
+import Schedule from "../components/Schedule.astro"
 import Footer from "../components/Footer.astro";
 ---
 
@@ -11,15 +13,17 @@ import Footer from "../components/Footer.astro";
 	<Header />
 	<div class="bl_contents">
 		<Hero />
+		<News />
 		<Welcome />
 		<Registration />
+		<Schedule />
 	</div>
 	<Footer />
 </Layout>
 
 <style>
 	.bl_contents {
-		padding-top: 80px;
+		padding: 80px 120px 80px;
 		display: flex;
 		flex-direction: column;
 		gap: 40px;

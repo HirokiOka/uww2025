@@ -1,0 +1,94 @@
+---
+
+const scheduleInfo = [
+    {
+        date: "12/19 (金)",
+        timeTable: [
+            { time: "9:30-", event: "受付" },
+            { time: "9:30--9:40", event: "オープニング" },
+            { time: "9:40--18:30", event: "口頭発表セッション (途中休憩あり)" },
+            { time: "18:50-20:50", event: "ナイトセッション" },
+        ]
+    },
+    {
+        date: "12/20 (土)",
+        timeTable: [
+            { time: "9:30-18:00", event: "口頭発表セッション（途中休憩あり）" },
+            { time: "18:00-18:20", event: "表彰・クロージング" },
+        ]
+    }
+]
+---
+<div class="bl_schedule">
+    <h2 class="bl_schedule_title">スケジュール</h2>
+<div class="bl_schedule_tableContent">
+    {
+        scheduleInfo.map(({ date, timeTable }) => (
+            <div>
+            <h3 class="bl_schedule_tableTitle">{ date }</h3>
+            <table class="bl_schedule_table">
+                <thead>
+                <tr>
+                    <th scope="col">時刻</th>
+                    <th scope="col">内容</th>
+                </tr>
+                </thead>
+                <tbody>
+                {timeTable.map(({ time, event }) => (
+                        <tr>
+                            <td>{ time }</td>
+                            <td>{ event }</td>
+                        </tr>
+                ))}
+                </tbody>
+            </table>
+            </div>
+    ))
+    }
+</div>
+
+</div>
+
+<style>
+    .bl_schedule_title {
+        font-size: 32px;
+    }
+
+    .bl_schedule_tableContent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr) ;
+    }
+
+    .bl_schedule_tableTitle {
+        font-size: 28px;
+    }
+
+    .bl_schedule_table {
+        border-collapse: collapse;
+
+        thead > tr {
+            font-size: 24px;
+            border-bottom: 2px solid #000;
+            background: #f0f0f0;
+            & > th {
+                padding: 8px;
+                &:first-child {
+                    border-right: 2px solid #000;
+                }
+            }
+        }
+
+        tbody > tr {
+            font-size: 24px;
+            text-align: center;
+            & > td {
+                padding: 4px 24px;
+                &:first-child {
+                    border-right: 2px solid #000;
+                }
+            }
+
+        }
+    }
+</style>
+
