@@ -6,24 +6,32 @@ import TeamtsukamotoImage from "../../public/teamtsukamoto.png";
 <section class="bl_sponsorship">
     <h2 class="bl_sponsorship_title">主催</h2>
     <div class="bl_sponsorship_content">
-    <div class="bl_sponsorship_contentItem">
-        <h3 class="bl_sponsorship_contentItem_title">神戸大学大学院工学研究科 塚本・寺田研究室</h3>
-        <Image
-                src={TsukakenImage}
-                alt=""
-                width="384"
-                height="64"
-        />
-    </div>
-    <div class="bl_sponsorship_contentItem">
-    <h3 class="bl_sponsorship_contentItem_title">NPO法人ウェアラブルコンピュータ研究開発機構（チームつかもと）</h3>
-        <Image
-                src={TeamtsukamotoImage}
-                alt=""
-                width="384"
-                height="64"
-        />
-    </div>
+        <div class="bl_sponsorship_contentItem">
+            <Image
+                    src={TsukakenImage}
+                    alt=""
+                    width="384"
+                    height="64"
+            />
+            <p class="bl_sponsorship_contentItem_title">
+                <a href="https://tt-lab.jp/" target="_blank">
+                    神戸大学大学院工学研究科 塚本・寺田研究室
+                </a>
+            </p>
+        </div>
+        <div class="bl_sponsorship_contentItem">
+            <Image
+                    src={TeamtsukamotoImage}
+                    alt=""
+                    width="384"
+                    height="64"
+            />
+            <p class="bl_sponsorship_contentItem_title">
+                <a href="https://teamtsukamoto.sakura.ne.jp/" target="_blank">
+                    NPO法人ウェアラブルコンピュータ研究開発機構（チームつかもと）
+                </a>
+            </p>
+        </div>
     </div>
 </section>
 
@@ -31,6 +39,7 @@ import TeamtsukamotoImage from "../../public/teamtsukamoto.png";
     .bl_sponsorship_title {
         font-size: 38px;
         text-decoration: underline;
+        margin-bottom: 80px;
     }
 
     .bl_sponsorship_content {
@@ -44,6 +53,6 @@ import TeamtsukamotoImage from "../../public/teamtsukamoto.png";
     }
 
     .bl_sponsorship_contentItem_title {
-        font-size: 28px;
+        font-size: 24px;
     }
 </style>
