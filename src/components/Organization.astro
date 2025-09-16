@@ -20,7 +20,9 @@ const committee = [
 ];
 ---
 <section class="bl_organization">
-    <h2 class="bl_organization_title">運営委員会</h2>
+    <h2 class="bl_organization_title">
+        <span class="bl_organization_title_num">04</span> 運営委員会
+    </h2>
     <div class="bl_organization_tableContent">
         <table class="bl_organization_table">
             <tbody>
@@ -40,9 +42,15 @@ const committee = [
 
     }
 
+
     .bl_organization_title {
         font-size: 38px;
-        text-decoration: underline;
+    }
+
+    .bl_organization_title_num {
+        background: #000;
+        color: #fff;
+        padding: 8px;
     }
 
     .bl_organization_tableContent {
@@ -51,15 +59,20 @@ const committee = [
     }
 
     .bl_organization_table {
+        border-collapse: collapse;
+        tbody > tr {
+            border-bottom: 1px solid #000;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
     }
 
     .bl_organization_table_row  {
-        border-collapse: collapse;
 
         th, td {
             font-size: 28px;
             padding: 12px 24px;
-            border-bottom: 1px solid #000;
         }
 
         th {
