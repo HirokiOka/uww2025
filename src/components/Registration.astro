@@ -87,4 +87,31 @@
     .bl_registration_list_item_annotation {
         color: #e00;
     }
+
+    @media (max-width: 540px) {
+        .bl_registration_content {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .bl_registration_contentItem {
+            border-bottom: 1px solid #000;
+            padding: 12px;
+            &:nth-child(odd) {
+                border-right: none;
+            }
+        }
+
+        .bl_registration_title {
+            font-size: 28px;
+        }
+
+        .bl_registration_subTitle {
+            font-size: 24px;
+        }
+
+        .bl_registration_list {
+            font-size: 20px;
+        }
+    }
 </style>

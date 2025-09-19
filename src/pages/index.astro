@@ -9,7 +9,6 @@ import Registration from "../components/Registration.astro";
 import Schedule from "../components/Schedule.astro";
 import Sponsorship from "../components/Sponsorship.astro";
 import Organization from "../components/Organization.astro";
-// import PastUwwLinks from "../components/PastUwwLinks.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -24,7 +23,6 @@ import Footer from "../components/Footer.astro";
 		<Schedule />
 		<Organization />
 		<Sponsorship />
-		<!--<PastUwwLinks />-->
 	</div>
 	<Footer />
 </Layout>
@@ -35,6 +33,12 @@ import Footer from "../components/Footer.astro";
 		display: flex;
 		flex-direction: column;
 		gap: 180px;
+	}
+	@media (max-width: 540px) {
+		.bl_contents {
+			padding: 120px 60px 40px;
+			gap: 80px;
+		}
 	}
 
 </style>

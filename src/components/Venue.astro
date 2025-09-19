@@ -8,20 +8,20 @@
     </h2>
     <div class="bl_venue_content">
         <ul class="bl_venue_list">
+            <li>日時：2025/12/19（金）、20（土）</li>
             <li>会場：<a href="https://www.kobe-u.ac.jp/ja/about/outline/facilities/centennial-hall/" target="_blank">
                 神戸大学百年記念館 六甲ホール</a></li>
             <li>住所：〒657-8501 神戸市灘区六甲台町1-1</li>
-            <li>日時：12/19（金）、20（土）</li>
         </ul>
         <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.2398453787405!2d135.23312507570554!3d34.72434827291123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008c171e8f3663%3A0xa3198df7a7b472a9!2z44CQIOelnuaIuOWkp-WtpiDnmb7lubToqJjlv7XppKgg44CRIOWFreeUsuODm-ODvOODqw!5e0!3m2!1sja!2sjp!4v1757923291636!5m2!1sja!2sjp"
                 width="640"
                 height="480"
+                class="bl_venue_map"
                 style="border:0;"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
-
         </iframe>
     </div>
 </section>
@@ -49,5 +49,33 @@
     .bl_venue_content {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 540px) {
+        .bl_venue_title {
+            font-size: 28px;
+        }
+
+        .bl_venue_title_num {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+        }
+
+        .bl_venue_list {
+            font-size: 20px;
+        }
+
+        .bl_venue_content {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 8px;
+        }
+
+        .bl_venue_map {
+            margin: 0 auto;
+            width: 360px;
+            height: auto;
+        }
     }
 </style>

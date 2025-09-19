@@ -33,6 +33,12 @@
             }
         }
     }
+    @media (max-width: 540px) {
+        .bl_title_text {
+            font-size: 48px;
+        }
+    }
+    
     .bl_title_text_lineOne, .bl_title_text_lineTwo, .bl_title_text_lineThree {
         opacity: 0;
     }
@@ -59,7 +65,7 @@
 
     tl.to(lineTwo, {
             opacity: 1,
-        y: 40,
+        x: 40,
             duration: 0.4,
             ease: "power4.out"
         },

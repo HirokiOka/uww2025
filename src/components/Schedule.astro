@@ -75,9 +75,8 @@ const scheduleInfo = [
 
     .bl_schedule_table {
         border-collapse: collapse;
-
+        font-size: 28px;
         thead > tr {
-            font-size: 28px;
             border-bottom: 2px solid #000;
             background: #f0f0f0;
             & > th {
@@ -89,7 +88,6 @@ const scheduleInfo = [
         }
 
         tbody > tr {
-            font-size: 28px;
             text-align: center;
             & > td {
                 padding: 12px 24px;
@@ -98,6 +96,32 @@ const scheduleInfo = [
                 }
             }
 
+        }
+    }
+
+    @media (max-width: 540px) {
+        .bl_schedule_title {
+            font-size: 28px;
+        }
+
+        .bl_schedule_title_num {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+        }
+
+
+        .bl_schedule_tableContent {
+            grid-template-columns: repeat(1, 1fr) ;
+            gap: 8px;
+        }
+
+        .bl_schedule_tableTitle {
+            font-size: 24px;
+        }
+
+        .bl_schedule_table {
+            font-size: 20px;
         }
     }
 </style>

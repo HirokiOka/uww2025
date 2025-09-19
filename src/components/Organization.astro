@@ -69,14 +69,34 @@ const committee = [
     }
 
     .bl_organization_table_row  {
-
+        font-size: 28px;
         th, td {
-            font-size: 28px;
             padding: 12px 24px;
         }
 
         th {
             border-right: 1px solid #000;
+        }
+    }
+
+    @media (max-width: 540px) {
+        .bl_organization_title {
+            font-size: 28px;
+        }
+
+        .bl_organization_title_num {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+        }
+
+        .bl_organization_tableContent {
+            display: grid;
+            place-items: center;
+        }
+
+        .bl_organization_table_row {
+            font-size: 18px;
         }
     }
 </style>

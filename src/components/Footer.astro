@@ -51,11 +51,11 @@ const previousUwwInfo = Array.from({ length: 2024 - 2007 + 1 }, (_, i) => {
         align-items: center;
         > a {
             font-size: 24px;
-            color: #fff
-        }
-        &:hover {
+            color: #fff;
+            &:hover {
             opacity: 0.6;
             transition: 0.2s;
+            }
         }
     }
 
@@ -65,5 +65,32 @@ const previousUwwInfo = Array.from({ length: 2024 - 2007 + 1 }, (_, i) => {
         justify-content: center;
         align-items: center;
         font-size: 24px;
+    }
+
+    @media (max-width: 540px) {
+        .bl_footer {
+            padding: 4px 8px 12px;
+
+        }
+
+        .bl_footer_title {
+            font-size: 24px;
+        }
+
+        .bl_footer_list {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            margin-bottom: 32px;
+        }
+
+        .bl_footer_list_item {
+            > a {
+                font-size: 20px;
+            }
+        }
+
+        .bl_footer_info {
+            font-size: 18px;
+        }
     }
 </style>
