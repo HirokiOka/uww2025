@@ -1,5 +1,6 @@
 ---
-
+import { Image } from 'astro:assets';
+import DownloadIcon from '../assets/download-icon.svg'
 ---
 
 <section class="bl_registration">
@@ -14,7 +15,11 @@
                 <li>会議参加費：無料</li>
                 <li>懇親会費：4,000円</li>
             </ul>
+            <div class="bl_registration_buttonWrapper">
+                <a class="bl_registration_button" href="https://forms.gle/XdFeE6kmw9HcG1WD6" target="_blank">参加登録する</a>
+            </div>
         </div>
+
         <div class="bl_registration_contentItem">
             <h3 class="bl_registration_subTitle">各種締切</h3>
             <ul class="bl_registration_list">
@@ -30,6 +35,35 @@
             <ul class="bl_registration_list">
                 <li>4日前までのキャンセル: 料金はかかりません。</li>
                 <li>3日前～当日のキャンセル: 料金の100%をいただきます。</li>
+            </ul>
+        </div>
+
+        <div class="bl_registration_contentItem">
+            <h3 class="bl_registration_subTitle">原稿テンプレート</h3>
+            <p class="bl_registration_description">原稿テンプレートは以下のリンクからダウンロードください。</p>
+            <ul class="bl_registration_downloadList">
+                <li>
+                    <a href="/public/template/UWW_Format_LaTeX.zip" class="bl_registration_downloadList_button">
+                        <span>LaTeX</span>
+                        <Image
+                            src={DownloadIcon}
+                            width="16"
+                            height="16"
+                            alt=""
+                        />
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/template/UWW_Format_Word.docx" class="bl_registration_downloadList_button">
+                        <span>Word</span>
+                        <Image
+                            src={DownloadIcon}
+                            width="16"
+                            height="16"
+                            alt=""
+                        />
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -72,6 +106,10 @@
         }
     }
 
+    .bl_registration_description {
+        font-size: var(--description-font-size-pc);
+    }
+
     .bl_registration_title {
         font-size: var(--title-font-size-pc);
     }
@@ -87,6 +125,53 @@
     .bl_registration_list_item_annotation {
         color: #e00;
     }
+
+    .bl_registration_buttonWrapper {
+        padding-top: 8px;
+        margin-left: 52px;
+    }
+
+    .bl_registration_button {
+        background: #000;
+        border-radius: 4px;
+        border: none;
+        padding: 12px 24px;
+        color: #fff;
+        font-size: 18px;
+        transition: opacity 0.3s;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    .bl_registration_downloadList {
+        display: flex;
+        gap:  16px;
+        li{
+          list-style: none;
+        }
+    }
+
+    .bl_registration_downloadList_button {
+        background: #000;
+        border: none;
+        border-radius: 4px;
+        padding: 12px 18px;
+        color: #fff;
+        font-size: 18px;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: center;
+        gap:  20px;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+    }
+
+
 
     @media (max-width: 540px) {
         .bl_registration_content {

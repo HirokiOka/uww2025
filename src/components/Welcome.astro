@@ -1,6 +1,9 @@
 ---
 ---
 <section class="bl_welcome">
+	<h2 class="bl_welcome_title">
+		<span class="bl_welcome_title_num">00</span> Welcome to UWW2025!
+	</h2>
 	<p class="bl_welcome_text">
 		ユビキタス・ウェアラブル技術の発展はめざましく、
 		これらの技術に関する研究開発が活発に行われています。<br />
@@ -27,15 +30,32 @@
 		place-items: center;
 	}
 
-	.bl_welcome_text {
-		font-size: 24px;
+	.bl_welcome_title {
+		font-size: var(--title-font-size-pc);
 	}
 
-	.bl_welcome_list {
+	.bl_welcome_title_num {
+		background: #000;
+		color: #fff;
+		padding: 8px;
+	}
+
+	.bl_welcome_text {
 		font-size: 22px;
 	}
 
+	.bl_welcome_list {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		font-size: 20px;
+	}
+
 	@media (max-width: 540px) {
+		.bl_welcome_title {
+			font-size: var(--title-font-size-sp);
+		}
+
 		.bl_welcome_text {
 			font-size: 20px;
 		}
