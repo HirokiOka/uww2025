@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import DownloadIcon from '../assets/download-icon.svg'
+import { Image } from "astro:assets";
+import DownloadIcon from "../assets/download-icon.svg";
 ---
 
 <section class="bl_registration">
@@ -129,6 +129,7 @@ import DownloadIcon from '../assets/download-icon.svg'
     .bl_registration_buttonWrapper {
         padding-top: 8px;
         margin-left: 52px;
+        margin-bottom: 24px;
     }
 
     .bl_registration_button {
@@ -196,7 +197,20 @@ import DownloadIcon from '../assets/download-icon.svg'
         }
 
         .bl_registration_list {
-            font-size: var(--description-font-size-pc);
+            font-size: var(--description-font-size-sp);
         }
+
+        .bl_registration_description {
+            font-size: var(--description-font-size-sp);
+        }
+
+        .bl_registration_button {
+            font-size: var(--description-font-size-sp);
+        }
+
+        .bl_registration_downloadList_button {
+            font-size: var(--description-font-size-sp);
+        }
+
     }
 </style>

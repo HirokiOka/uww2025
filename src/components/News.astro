@@ -10,7 +10,8 @@ const newsItems = [
         {
             newsItems.map(({ date, title }) => (
                 <li class="bl_news_list_item">
-                    <span>{ date }</span><span>{ title }</span>
+                    <span class="bl_news_list_item_date">{ date }</span>
+                    <span class="bl_news_list_item_text">{ title }</span>
                 </li>
             ))
         }
@@ -32,9 +33,15 @@ const newsItems = [
     }
 
     .bl_news_list_item {
-        font-size: 28px;
-
+        font-size: var(--description-font-size-pc);
+        display: flex;
+        gap: 24px;
     }
+
+    .bl_news_list_item_date {
+        font-weight: bold;
+    }
+
 
     @media (max-width: 540px) {
         .bl_news {
@@ -47,6 +54,7 @@ const newsItems = [
 
         .bl_news_list_item {
             font-size: var(--description-font-size-sp);
+            gap: 12px;
         }
     }
 </style>
