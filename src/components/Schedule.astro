@@ -53,7 +53,7 @@ const scheduleInfo = [
 
 <style>
     .bl_schedule_title {
-        font-size: 38px;
+        font-size: var(--title-font-size-pc);
     }
 
     .bl_schedule_title_num {
@@ -69,13 +69,12 @@ const scheduleInfo = [
     }
 
     .bl_schedule_tableTitle {
-        font-size: 28px;
-
+        font-size: var(--subtitle-font-size-pc);
     }
 
     .bl_schedule_table {
         border-collapse: collapse;
-        font-size: 28px;
+        font-size: var(--description-font-size-pc);
         thead > tr {
             border-bottom: 2px solid #000;
             background: #f0f0f0;
@@ -101,7 +100,7 @@ const scheduleInfo = [
 
     @media (max-width: 540px) {
         .bl_schedule_title {
-            font-size: 28px;
+            font-size: var(--title-font-size-sp);
         }
 
         .bl_schedule_title_num {
@@ -117,11 +116,11 @@ const scheduleInfo = [
         }
 
         .bl_schedule_tableTitle {
-            font-size: 24px;
+            font-size: var(--subtitle-font-size-sp);
         }
 
         .bl_schedule_table {
-            font-size: 20px;
+            font-size: var(--description-font-size-sp);
         }
     }
 </style>
