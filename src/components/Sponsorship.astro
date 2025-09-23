@@ -37,9 +37,41 @@ import TeamtsukamotoImage from "../../public/teamtsukamoto.png";
             </p>
         </div>
     </div>
+    <div class="bl_sponsorship_reportWrapper">
+        <div class="bl_sponsorship_report">
+            <p>本ワークショップは、下記プロジェクトの成果報告会を兼ねています。</p>
+            <ul class="bl_sponsorship_report_list">
+                <li>JSTムーンショット型研究開発事業(JPMJMS239F)</li>
+                <li>JSTムーンショット型研究開発事業(JPMJMS229C)</li>
+                <li>科学研究費補助金基盤研究(A)(22H00550)</li>
+                <li>科学研究費補助金基盤研究(B)(23K25705)</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <style>
+    .bl_sponsorship_reportWrapper {
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bl_sponsorship_report {
+        padding: 6px 24px;
+        font-size: 16px;
+        background-color: #eee;
+    }
+
+    .bl_sponsorship_report_list {
+        list-style:inside;
+        padding: 0;
+        margin-top: 0;
+    }
+
+
     .bl_sponsorship_title {
         font-size: var(--title-font-size-pc);
         margin-bottom: 80px;
