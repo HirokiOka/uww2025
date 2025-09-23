@@ -239,13 +239,33 @@
     const hamburgerButton = document.querySelector('.js-hamburger');
     const spNav = document.querySelector('.js-header-navigation-sp');
     const drawer = document.getElementById('sp-drawer');
-    if (!hamburgerButton || !spNav) { /* 何もしない */ }
-    else {
-        hamburgerButton.addEventListener('click', () => {
-            const isOpen = hamburgerButton.classList.toggle('active');
-            spNav.classList.toggle('active', isOpen);
-            hamburgerButton.setAttribute('aria-expanded', String(isOpen));
-            if (drawer) drawer.hidden = !isOpen;
-        });
+
+    function toggleNavigation() {
+        if (!hamburgerButton || !spNav) return;
+        const isOpen = hamburgerButton.classList.toggle('active');
+        spNav.classList.toggle('active', isOpen);
+        hamburgerButton.setAttribute('aria-expanded', String(isOpen));
+        if (drawer) drawer.hidden = !isOpen;
     }
+
+    hamburgerButton.addEventListener('click', () => {
+        toggleNavigation();
+    });
+
+    function isOpen() {
+        return spNav.classList.contains('active');
+    }
+
+    document.addEventListener('click', (e) => {
+        if (isOpen() && !spNav.contains(e.target)) {
+            toggleNavigation();
+        }
+    });
+
+    spNav.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a) return;
+        toggleNavigation();
+    });
+
 </script>
