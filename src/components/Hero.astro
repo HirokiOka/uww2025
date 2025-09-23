@@ -55,27 +55,57 @@
     const lineTwo = document.querySelectorAll('.bl_title_text_lineTwo');
     const lineThree = document.querySelectorAll('.bl_title_text_lineThree');
     const tl = gsap.timeline();
-    tl.to(lineOne, {
-        opacity: 1,
-        x: 40,
-        duration: 0.4,
-        ease: "power4.out"
-        },
-    );
+    const mm = gsap.matchMedia();
 
-    tl.to(lineTwo, {
-            opacity: 1,
-        x: 40,
-            duration: 0.4,
-            ease: "power4.out"
-        },
-    );
+    mm.add("(min-width: 540px)", () => {
+        tl.to(lineOne, {
+                opacity: 1,
+                x: 40,
+                duration: 0.4,
+                ease: "power4.out"
+            },
+        );
 
-    tl.to(lineThree, {
-            opacity: 1,
-        x: -40,
-            duration: 0.4,
-            ease: "power4.out"
-        },
-    );
+        tl.to(lineTwo, {
+                opacity: 1,
+                y: 20,
+                duration: 0.4,
+                ease: "power4.out"
+            },
+        );
+
+        tl.to(lineThree, {
+                opacity: 1,
+                x: -40,
+                duration: 0.4,
+                ease: "power4.out"
+            },
+        );
+    });
+
+    mm.add("(max-width: 540px)", () => {
+        tl.to(lineOne, {
+                opacity: 1,
+                x: 20,
+                duration: 0.4,
+                ease: "power4.out"
+            },
+        );
+
+        tl.to(lineTwo, {
+                opacity: 1,
+                y: 10,
+                duration: 0.4,
+                ease: "power4.out"
+            },
+        );
+
+        tl.to(lineThree, {
+                opacity: 1,
+                x: -20,
+                duration: 0.4,
+                ease: "power4.out"
+            },
+        );
+    });
 </script>
