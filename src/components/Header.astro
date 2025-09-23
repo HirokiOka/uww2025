@@ -3,7 +3,8 @@
 ---
 <header class="bl_header">
     <h1 class="bl_header_logo">UWW2025</h1>
-    <nav>
+
+    <nav class="bl_header_navigation_pc js-header-navigation-pc">
         <ul class="bl_header_list">
             <li class="bl_header_listItem">
                 <a href="/#top">
@@ -40,6 +41,31 @@
                 </a>
             </li>
         </ul>
+    </nav>
+
+    <nav class="bl_header_navigation_sp js-header-navigation-sp">
+        <button
+                class="bl_header_hamburger js-hamburger"
+                aria-label="menu"
+                aria-expanded="false"
+        >
+            <span class="bl_header_hamburger_item"></span>
+            <span class="bl_header_hamburger_item"></span>
+            <span class="bl_header_hamburger_item"></span>
+        </button>
+        <div class="bl_header_drawer" id="sp-drawer" hidden>
+            <ul class="bl_header_drawer_list">
+                <li class="bl_header_drawer_list_item">
+                    <a href="/#top">TOP</a>
+                </li>
+                <li class="bl_header_drawer_list_item">
+                    <a href="/#access">ACCESS</a>
+                </li>
+                <li class="bl_header_drawer_list_item">
+                    <a href="/#schedule">SCHEDULE</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
 
@@ -102,4 +128,124 @@
         white-space: nowrap;
     }
 
+    .bl_header_hamburger {
+        border: none;
+        width: 32px;
+        height: 23px;
+        cursor: pointer;
+        position: relative;
+        background: none;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+
+    .bl_header_navigation_sp {
+        display: none;
+    }
+
+
+    @media (max-width: 540px) {
+        .bl_header_navigation_pc {
+            display: none;
+        }
+        .bl_header_listItem {
+            display: none;
+        }
+
+        .bl_header_hamburger {
+            display: block;
+        }
+
+        .bl_header_navigation_sp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .bl_header_hamburger_item {
+            display: block;
+            position: absolute;
+            width: 32px;
+            height: 1px;
+            background: #000;
+            top: calc(50% + 1px);
+            transition: all 0.3s;
+            &:nth-child(1) {
+                translate: 0 11px;
+            }
+            &:nth-child(3) {
+                translate: 0 -11px;
+            }
+        }
+
+        .bl_header_hamburger.active .bl_header_hamburger_item {
+            &:nth-child(1) {
+                translate: 0 0;
+                rotate: 45deg;
+            }
+            &:nth-child(2) {
+                opacity: 0;
+                rotate: 90deg;
+            }
+            &:nth-child(3) {
+                translate: 0 0;
+                rotate: -45deg;
+            }
+        }
+
+        .bl_header_drawer {
+            position: fixed;
+            top: 56px;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #000;
+            transform: translateY(-8px);
+            pointer-events: none;
+            transition: all 0.25s;
+        }
+
+        .js-header-navigation-sp.active .bl_header_drawer {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .bl_header_drawer_list {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            gap: 18px;
+        }
+
+        .bl_header_drawer_list_item {
+            font-size: 20px;
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+        }
+
+
+    }
+
 </style>
+
+<script>
+    const hamburgerButton = document.querySelector('.js-hamburger');
+    const spNav = document.querySelector('.js-header-navigation-sp');
+    const drawer = document.getElementById('sp-drawer');
+    if (!hamburgerButton || !spNav) { /* 何もしない */ }
+    else {
+        hamburgerButton.addEventListener('click', () => {
+            const isOpen = hamburgerButton.classList.toggle('active');
+            spNav.classList.toggle('active', isOpen);
+            hamburgerButton.setAttribute('aria-expanded', String(isOpen));
+            if (drawer) drawer.hidden = !isOpen;
+        });
+    }
+</script>
