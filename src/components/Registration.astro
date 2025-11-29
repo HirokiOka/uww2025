@@ -14,9 +14,10 @@ import DownloadIcon from "../assets/download-icon.svg";
             <ul class="bl_registration_list">
                 <li>会議参加費：無料</li>
                 <li>懇親会費：4,000円</li>
+
             </ul>
             <div class="bl_registration_buttonWrapper">
-                <a class="bl_registration_button" href="https://forms.gle/XdFeE6kmw9HcG1WD6" target="_blank">参加登録する</a>
+              <p class="bl_registration_button_annotation">※参加登録は締め切りました</p>
             </div>
         </div>
 
@@ -129,7 +130,7 @@ import DownloadIcon from "../assets/download-icon.svg";
     .bl_registration_buttonWrapper {
         padding-top: 8px;
         margin-left: 52px;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
     }
 
     .bl_registration_button {
@@ -145,6 +146,11 @@ import DownloadIcon from "../assets/download-icon.svg";
             opacity: 0.6;
         }
     }
+    .bl_registration_button_annotation {
+        color: #e00;
+        font-size: 20px;
+    }
+
 
     .bl_registration_downloadList {
         display: flex;
