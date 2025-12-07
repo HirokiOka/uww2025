@@ -2,7 +2,9 @@
 
 ---
 <header class="bl_header">
-    <h1 class="bl_header_logo">UWW2025</h1>
+    <h1 class="bl_header_logo">
+        <a href="/uww2025/">UWW2025</a>
+    </h1>
 
     <nav class="bl_header_navigation_pc js-header-navigation-pc">
         <ul class="bl_header_list">
@@ -49,7 +51,7 @@
                             </span>
                         ))}
                     </span>
-                    <span class="sr-only">SCHEDULE</span>
+                    <span class="sr-only">PROGRAM</span>
                 </a>
             </li>
         </ul>
@@ -76,6 +78,9 @@
                 <li class="bl_header_drawer_list_item">
                     <a href="/uww2025/#schedule">SCHEDULE</a>
                 </li>
+                <li class="bl_header_drawer_list_item">
+                    <a href="/uww2025/program">PROGRAM</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -99,6 +104,9 @@
     .bl_header_logo {
         padding: 4px 24px;
         font-size: 20px;
+        & > a {
+            color: #000;
+        }
     }
 
     .bl_header_list {

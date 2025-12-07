@@ -28,7 +28,7 @@ const { program } = Astro.props;
     <p class="bl_tabUI_tabpanel_event_time">[ {startTime} ~ {endTime} ]</p>
     <h3 class="bl_tabUI_tabpanel_event_name">{eventName}</h3>
     { isSession &&
-            <ul>
+            <ul class="bl_presentation">
                 {presentations?.map(({ name, affiliation, title, coauthors }) => {
                     return (
                             <li class="bl_presentation_list">
@@ -56,6 +56,10 @@ const { program } = Astro.props;
         &:last-child {
             border-bottom: none;
         }
+      overflow-wrap: anywhere; /* 収まらない場合に折り返す */
+      word-break: normal; /* 単語の分割はデフォルトに依存 */
+      line-break: strict; /* 禁則処理を厳格に適用 */
+
     }
 
     .bl_presentation_list {
@@ -84,9 +88,36 @@ const { program } = Astro.props;
     }
 
     .bl_presentation_list_authors {
-
         display: flex;
         column-gap: 4px;
+    }
+
+    @media (max-width: 540px) {
+
+      .bl_tabUI_tabpanel_event {
+        padding: 0 4px;
+      }
+
+      .bl_presentation {
+        padding: 0 8px;
+        list-style-type: none;
+      }
+
+      .bl_tabUI_tabpanel_event_time {
+        font-size: 12px;
+      }
+
+      .bl_tabUI_tabpanel_event_name {
+        font-size: 16px;
+      }
+
+      .bl_presentation_list_title {
+        font-size: 12px;
+      }
+
+      .bl_presentation_list_name {
+        font-size: 10px;
+      }
     }
 
 

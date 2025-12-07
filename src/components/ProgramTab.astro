@@ -136,6 +136,26 @@ const tabItem = [
   .bl_tabUI_tabpanel[aria-hidden="true"] {
     display: none;
   }
+  
+  @media (max-width: 540px) {
+    .bl_program_title {
+      font-size: var(--title-font-size-sp);
+    }
+
+    .bl_tabUI {
+      width: 90%;
+    }
+
+    .bl_tabUI_item {
+      font-size: var(--subtitle-font-size-sp);
+    }
+
+    .bl_tabUI_tabpanel {
+      margin: 4px 10px 0;
+    }
+
+
+  }
 
 </style>
 
