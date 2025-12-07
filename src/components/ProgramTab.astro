@@ -1,0 +1,227 @@
+---
+import { dayOneProgram } from "../data/dayOne";
+import { dayTwoProgram } from "../data/dayTwo";
+import TableInfo from "../components/TabInfo.astro";
+
+const tabItem = [
+  { title: "12/19（金）", id: "dayOne", ariaSelected: true, tabIndex: 0 },
+  { title: "12/20（土）", id: "dayTwo", ariaSelected: false, tabIndex: -1 },
+];
+---
+<div class="bl_program">
+  <h1 class="bl_program_title">発表プログラム</h1>
+  <p>発表時間:11分(発表8分 + 質疑2分 + 転換1分)</p>
+  <div class="bl_tabUI js-tabUI">
+    <ul class="bl_tabUI_tablist" role="tablist" aria-label="プログラム">
+      { tabItem.map(({title, id, ariaSelected, tabIndex}) => (
+      <li class="bl_tabUI_item" role="presentation">
+        <button 
+          type="button"
+          class="bl_tabUI_tab js-tab"
+          id={`tab-${id}`}
+          role="tab"
+          aria-controls={`panel-${id}`}
+          aria-selected={ariaSelected}
+          tabindex={tabIndex}
+        >
+          {title}
+        </button>  
+      </li>
+      ))}
+    </ul>
+    <div class="bl_tabUI_body">
+          <ul class="bl_tabUI_tabpanel js-tabpanel"
+               id="panel-dayOne"
+               role="tabpanel"
+               aria-labelledby="tab-dayOne"
+               aria-hidden="false"
+               tabindex="0"
+          >
+            <TableInfo program={dayOneProgram} />
+          </ul>
+      <ul class="bl_tabUI_tabpanel js-tabpanel"
+          id="panel-dayTwo"
+          role="tabpanel"
+          aria-labelledby="tab-dayTwo"
+          aria-hidden="true"
+          tabindex="0"
+      >
+          <TableInfo program={dayTwoProgram} />
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .bl_program {
+    padding-top: 80px;
+    padding-bottom: 120px;
+    display: grid;
+    place-items: center;
+
+  }
+  .bl_program_title {
+		font-size: var(--title-font-size-pc);
+  }
+  .bl_program_text {
+		font-size: 22px;
+  }
+
+  .bl_tabUI {
+    width: 80%;
+  }
+
+  .bl_tabUI_tablist {
+    display: flex;
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  .bl_tabUI_item {
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: black;
+    margin-bottom: -1px;
+    font-size: var(--subtitle-font-size-pc);
+  }
+
+  .bl_TabUI_item:nth-child(n+2) {
+    margin-left: 5px;
+  }
+
+  .bl_tabUI_tab {
+    display: block;
+    position: relative;
+    margin: 0;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    padding: 0.25em 0.5em;
+    width: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .bl_tabUI_tab[aria-selected="true"] {
+    border-bottom-color: white;
+    background-color: white;
+    color: black;
+  }
+
+  .bl_tabUI_tab[aria-selected="false"] {
+    border-bottom-color: dimgray;
+    background-color: whitesmoke;
+    color: dimgray;
+  }
+
+  .bl_tabUI_tab[aria-selected="false"]:focus {
+    color: black;
+  }
+
+  .bl_tabUI_body {
+    border-width: 1px;
+    border-style: solid;
+    border-color: dimgray;
+    background-color: white;
+  }
+
+  .bl_tabUI_tabpanel {
+    list-style-type: none;
+    margin: 24px;
+    padding-left: 0;
+  }
+
+  .bl_tabUI_tabpanel[aria-hidden="true"] {
+    display: none;
+  }
+
+</style>
+
+<script>
+  const tabUIRoot = document.querySelector(".js-tabUI");
+  const tabs = tabUIRoot?.querySelectorAll(".js-tab");
+  const panels = tabUIRoot?.querySelectorAll(".js-tabpanel");
+
+
+  function getIndexOfTab(tabElement: HTMLElement): number {
+    if (tabElement == null || tabs == null)  {
+      console.log("No tab element found");
+      return -1;
+    }
+    let matchedIndex = -1;
+    for (let i = 0; i < tabs.length; i++) {
+      if (tabs[i] === tabElement) {
+        matchedIndex = i;
+        break;
+      }
+    }
+    return matchedIndex;
+  }
+
+  let currentSelectedTabIndex = -1;
+
+  function getCurrentSelectedTabIndex() {
+    return currentSelectedTabIndex;
+  }
+
+  function setCurrentSelectedTabIndex(index: number) {
+    currentSelectedTabIndex = index;
+  }
+
+  function onClickTab(event: MouseEvent) {
+    if (event == null) return;
+    const clickedTab = event.currentTarget;
+    const clickedIndex = getIndexOfTab(clickedTab);
+    const currentIndex = getCurrentSelectedTabIndex();
+    if (clickedIndex === currentIndex) return;
+    changeTab(clickedIndex);
+    setCurrentSelectedTabIndex(clickedIndex);
+  }
+
+  function changeTab(nextIndex: number) {
+    if (tabs == null || panels == null) return;
+    const currentIndex = getCurrentSelectedTabIndex();
+    const nextTab = tabs[nextIndex];
+    const nextPanel = panels[nextIndex];
+    show(nextTab, nextPanel);
+    if (currentIndex > -1) {
+      const currentTab = tabs[currentIndex];
+      const currentPanel = panels[currentIndex];
+      hide(currentTab, currentPanel);
+    }
+  }
+
+  function show(tab, panel) {
+    tab.setAttribute("aria-selected", "true");
+    tab.removeAttribute("tabindex");
+    panel.setAttribute("aria-hidden", "false");
+  }
+
+  function hide(tab, panel) {
+    tab.setAttribute("aria-selected", "false");
+    tab.setAttribute("tabindex", "-1");
+    panel.setAttribute("aria-hidden", "true");
+  }
+
+  function isSelectedTab(tab) {
+    const ariaSelected = tab.getAttribute("aria-selected");
+    return ariaSelected === "true";
+  }
+
+  function init() {
+    if (tabs == null) return;
+    for (let i = 0; i < tabs.length; i++) {
+      const tab = tabs[i];
+      const isSelected = isSelectedTab(tab);
+      if (isSelected) {
+        changeTab(i);
+        setCurrentSelectedTabIndex(i);
+      }
+      tab.addEventListener("click", onClickTab, false);
+    }
+  }
+
+  init();
+</script>

@@ -1,0 +1,93 @@
+---
+export interface Props {
+  program: Event[];
+}
+
+type Event = {
+  isSession: boolean;
+  eventName: string;
+  startTime: string;
+  endTime: string;
+  chairperson?: string;
+  presentations: Presentation[];
+};
+
+type Presentation = {
+  name: string;
+  affiliation: string;
+  title: string;
+  coauthors?: { name: string; affiliation: string }[];
+};
+
+const { program } = Astro.props;
+---
+
+<div>
+    {program.map(({isSession, eventName, startTime, endTime, presentations}) => (
+      <li class="bl_tabUI_tabpanel_event">
+    <p class="bl_tabUI_tabpanel_event_time">[ {startTime} ~ {endTime} ]</p>
+    <h3 class="bl_tabUI_tabpanel_event_name">{eventName}</h3>
+    { isSession &&
+            <ul>
+                {presentations?.map(({ name, affiliation, title, coauthors }) => {
+                    return (
+                            <li class="bl_presentation_list">
+                                <h4 class="bl_presentation_list_title">{title}</h4>
+                                <div class="bl_presentation_list_authors">
+                                    <p class="bl_presentation_list_name">{name} ({affiliation}) { coauthors.length !== 0 && ","}</p>
+                                    {coauthors?.map(({ name, affiliation }, idx) => {
+                                        return <p class="bl_presentation_list_name">{name} ({affiliation}) { idx !== coauthors.length-1 && ","}</p>
+                                    })}
+                                </div>
+                            </li>
+                    );
+                })}
+            </ul>
+    }
+</li>
+    ))}
+</div>
+
+<style>
+    .bl_tabUI_tabpanel_event {
+        font-size: var(--description-font-size-pc);
+        border-bottom: 1px solid gray;
+        padding: 12px;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .bl_presentation_list {
+        margin-bottom: 12px;
+    }
+
+    .bl_tabUI_tabpanel_event_time {
+        margin: 0;
+    }
+
+    .bl_tabUI_tabpanel_event_name {
+        margin-top: 8px;
+        margin-bottom: 12px;
+        font-size: 24px;
+        //font-weight: normal;
+    }
+
+    .bl_presentation_list_title {
+        //font-weight: normal;
+        margin: 0 0 2px 0;
+    }
+
+    .bl_presentation_list_name {
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .bl_presentation_list_authors {
+
+        display: flex;
+        column-gap: 4px;
+    }
+
+
+</style>
