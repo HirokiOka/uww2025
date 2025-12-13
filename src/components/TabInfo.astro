@@ -23,10 +23,11 @@ const { program } = Astro.props;
 ---
 
 <div>
-    {program.map(({isSession, eventName, startTime, endTime, presentations}) => (
+    {program.map(({isSession, eventName, startTime, endTime, chairperson, presentations}) => (
       <li class="bl_tabUI_tabpanel_event">
     <p class="bl_tabUI_tabpanel_event_time">[ {startTime} ~ {endTime} ]</p>
     <h3 class="bl_tabUI_tabpanel_event_name">{eventName}</h3>
+        {chairperson !== undefined && <p class="bl_tabUI_tabpanel_event_chairperson"> 座長: {chairperson}</p>}
     { isSession &&
             <ul class="bl_presentation">
                 {presentations?.map(({ name, affiliation, title, coauthors }) => {
@@ -34,10 +35,17 @@ const { program } = Astro.props;
                             <li class="bl_presentation_list">
                                 <h4 class="bl_presentation_list_title">{title}</h4>
                                 <div class="bl_presentation_list_authors">
-                                    <p class="bl_presentation_list_name">{name} ({affiliation}) { coauthors.length !== 0 && ","}</p>
+                                    <p class="bl_presentation_list_name">{name} ({affiliation}) { coauthors.length !== 0 && ","}
                                     {coauthors?.map(({ name, affiliation }, idx) => {
-                                        return <p class="bl_presentation_list_name">{name} ({affiliation}) { idx !== coauthors.length-1 && ","}</p>
+                                      if (affiliation === "") {
+                                        return <span class="bl_presentation_list_name">{name}
+                                           {idx !== coauthors.length - 1 && ","}</span>
+                                      } else {
+                                        return <span class="bl_presentation_list_name">{name}
+                                            ({affiliation}) {idx !== coauthors.length - 1 && ","}</span>
+                                      }
                                     })}
+                                    </p>
                                 </div>
                             </li>
                     );
@@ -59,7 +67,12 @@ const { program } = Astro.props;
       overflow-wrap: anywhere; /* 収まらない場合に折り返す */
       word-break: normal; /* 単語の分割はデフォルトに依存 */
       line-break: strict; /* 禁則処理を厳格に適用 */
+    }
 
+    .bl_tabUI_tabpanel_event_chairperson {
+      font-size: 18px;
+      padding-left: 40px;
+      margin: 0 0 12px;
     }
 
     .bl_presentation_list {
@@ -88,8 +101,8 @@ const { program } = Astro.props;
     }
 
     .bl_presentation_list_authors {
-        display: flex;
-        column-gap: 4px;
+        //display: flex;
+        //column-gap: 4px;
     }
 
     @media (max-width: 540px) {
@@ -117,6 +130,12 @@ const { program } = Astro.props;
 
       .bl_presentation_list_name {
         font-size: 10px;
+      }
+
+      .bl_tabUI_tabpanel_event_chairperson {
+        margin: 0 12px 8px;
+        padding: 0;
+        font-size: 12px;
       }
     }
 

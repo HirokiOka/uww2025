@@ -13,7 +13,7 @@ const tabItem = [
   <p>発表時間:11分(発表8分 + 質疑2分 + 転換1分)</p>
   <div class="bl_tabUI js-tabUI">
     <ul class="bl_tabUI_tablist" role="tablist" aria-label="プログラム">
-      { tabItem.map(({title, id, ariaSelected, tabIndex}) => (
+      { tabItem.map(({ title, id, ariaSelected, tabIndex }) => (
       <li class="bl_tabUI_item" role="presentation">
         <button 
           type="button"
@@ -153,8 +153,6 @@ const tabItem = [
     .bl_tabUI_tabpanel {
       margin: 4px 10px 0;
     }
-
-
   }
 
 </style>
